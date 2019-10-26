@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :users
-  root 'posts#index'
+  root 'pages#index'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
