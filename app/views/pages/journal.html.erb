@@ -1,1 +1,46 @@
-<h1>journal</h1>
+<div class="title">
+            <h1>journal</h1>
+        </div>
+        
+        <div class="row">
+            <div class="section1 col-lg-4 col-sm-12">
+                <h4>what were you grateful for?</h4>
+                <form class="journal">
+                    <input type="text"><br>
+                    <button class="journal-button">edit</button>
+                    <button class="journal-button">save</button>
+                </form>
+            </div>
+            <div class="section2 col-lg-4 col-sm-12">
+                <h4>who made you feel grateful?</h4>
+                <form class="journal">
+                    <input type="text"><br>
+                    <button class="journal-button">edit</button>
+                    <button class="journal-button">save</button>
+                </form>
+            </div>
+            <div class="section3 col-lg-4 col-sm-12">
+                <h4>how did you show your appreciation?</h4>
+                <form class="journal">
+                    <input type="text"><br>
+                    <button class="journal-button">edit</button>
+                    <button class="journal-button">save</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+<div class="row">
+    <% @questions.each_with_index do |row, index| %>
+        <div class="section<%= index+1 %> col-lg-4 col-sm-12">
+            <h4><%= row.question %></h4>
+            <%= form_with(url: "/journal/answer/"+row.id.to_s, local: true, method: "post") do  %>
+                <input name="answer" type="text"><br>
+                <button type="submit" class="journal-button">save</button>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+

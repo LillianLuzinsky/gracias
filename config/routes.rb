@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   get 'journal', to: 'pages#journal'
+  get 'journal/answer', to: 'pages#show_answers'
+  post 'journal/answer/:question_id', to: 'pages#submit_answer'
 
   resources :users
   resources :sessions
